@@ -8,9 +8,18 @@ const fs = require('fs');
   // and if all goes well, we end the response with 
     // res.end("hello from server")
 const myServer = http.createServer((req,res) => {
-    const log = `${Date.now()}: New Req Recieved\n`;
+    const log = `${Date.now()}: ${req.url} New Req Recieved\n`;
      fs.appendFile('log.txt', log, (err,data) => {
-          res.end("Hello from Server Again");
+          switch(req.url){
+                case '/': res.end ("HomePage");
+                break;
+                case '/about':res.end("I am Amit Jape");
+                break;
+                default:
+                  res.end("404 Not Found");
+
+          }
+          
      } );
   
 
