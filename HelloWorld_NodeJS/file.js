@@ -1,9 +1,9 @@
 const fs = require('fs');
 
-// Sync...
+// Sync... Blocking Request...
 // fs.writeFileSync('./test.txt', 'Hey There File System');
 
-// Async // requires a callback function as paramater/argument.
+// Async // requires a callback function as paramater/argument. // Non Blocking request
 // fs.writeFile('./test.txt',"Hello There Async",(err) => {} );
 
 // const result = fs.readFileSync("./contacts.txt","utf-8");
