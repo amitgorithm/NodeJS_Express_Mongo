@@ -19,5 +19,5 @@ const selfServer = http.createServer((req,res)=> {
   };
 })
 
-selfServer.listen(5007,()=> {});
+selfServer.listen(5007,()=> {console.log("Server Started")});
 
