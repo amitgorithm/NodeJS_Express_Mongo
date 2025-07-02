@@ -1,0 +1,15 @@
+we are making REST API with JSON data support
+
+GET /users - HTML Document Render //if opened on browser
+GET /api/users - List all users JSON DATA - Done // if opened on mobile
+
+GET /api/users/1 - Get the user with ID 1
+GET /api/users/1 - Get the user with ID 2
+
+POST /api/users - Create new user
+
+PATCH /api/users/1 - Edit the user with ID 1
+
+DELETE /api/users/1 - Delete the user with ID 1
+
+Use Mockaroo site to generate Fake Users Data with 1000 entries, JSON Format
