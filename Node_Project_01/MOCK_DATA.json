@@ -17,11 +17,11 @@
   },
   {
     "id": 3,
-    "first_name": "Silvie",
+    "first_name": "UpdatedName3",
     "last_name": "Blaxter",
     "email": "sblaxter2@cocolog-nifty.com",
     "gender": "Genderfluid",
-    "job_title": "VP Accounting"
+    "job_title": "Coder3"
   },
   {
     "id": 4,
@@ -7998,5 +7998,37 @@
     "email": "mboutflourrr@oracle.com",
     "gender": "Female",
     "job_title": "Account Coordinator"
+  },
+  {
+    "first_name": "Amit",
+    "last_name": "Jape",
+    "email": "japeamit.work@gmail.com",
+    "gender": "Male",
+    "job_title": "Software Dev",
+    "id": 1001
+  },
+  {
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "johndoe@gmail.com",
+    "gender": "Male",
+    "job_title": "Youtuber",
+    "id": 1002
+  },
+  {
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "email": "johndoe@gmail.com",
+    "gender": "Female",
+    "job_title": "Youtuber",
+    "id": 1003
+  },
+  {
+    "first_name": "Jane",
+    "last_name": "Johnson",
+    "email": "johndoe@yahoo.com",
+    "gender": "Female",
+    "job_title": "Vlogger",
+    "id": 1004
   }
 ]
