@@ -50,10 +50,26 @@ app
            });
         })
       .delete((req,res) => {
-         
-          res.json({status: "Pending"});
+          const idToDelete = Number(req.params.id);
+          const userIndex = users.findIndex(user => user.id === idToDelete);
+
+          if (userIndex === -1) {
+            return res.status(404).json({ error: "User not found" });
+          }
+
+          // Remove the user from the array
+          const deletedUser = users.splice(userIndex, 1)[0];
+
+          // Save the updated users array to the file
+          fs.writeFile("./MOCK_DATA.json", JSON.stringify(users, null, 2), (err) => {
+            if (err) {
+              return res.status(500).json({ error: "Failed to delete user" });
+            }
+            res.json({ status: "success", deleted: deletedUser });
+          });
+          
       });
-      
+
 
 app.post("/api/users", (req,res) => {
       const body = req.body;
