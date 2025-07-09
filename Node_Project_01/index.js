@@ -15,13 +15,24 @@ app.get("/users", (req,res) => {
     res.send(html);
 });
 
-// REST API 
-app.get("/api/users", (req,res) => {
-    return res.json(users);
-});
+
 
 // Middleware - Plugin of Express
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: false})); // built-in middleware
+
+
+app.use((req,res,next) => {
+  fs.appendFile('log.txt', `${Date.now()}:${req.ip} ${req.path}\n`, (err,data) => {
+      next();
+  })
+  
+});
+
+// app.use((req,res,next) => {
+//   console.log("Hello from middleware 2", req.myUserName);
+//   return res.end("hey");
+// });
+
 app.use(express.json());
 
 // Routes
@@ -70,6 +81,10 @@ app
           
       });
 
+// REST API 
+app.get("/api/users", (req,res) => {
+    return res.json(users);
+});      
 
 app.post("/api/users", (req,res) => {
       const body = req.body;
