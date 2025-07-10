@@ -83,6 +83,9 @@ app
 
 // REST API 
 app.get("/api/users", (req,res) => {
+    res.setHeader("X-myName", "Amit Jape");
+    // always add X to custom headers
+    console.log(req.headers);
     return res.json(users);
 });      
 
