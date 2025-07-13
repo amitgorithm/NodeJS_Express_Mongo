@@ -2,8 +2,6 @@ const express = require("express");
 
 const router = express.Router();
 
-// RESTful API Routes
-
 // GET all users
 router.get("/", async (req, res) => {
   try {
@@ -14,38 +12,9 @@ router.get("/", async (req, res) => {
   }
 });
 
-// POST new user
-router.post("/", async (req, res) => {
-  const body = req.body;
-
-  if (
-    !body.firstName ||
-    !body.lastName ||
-    !body.email ||
-    !body.gender ||
-    !body.jobTitle
-  ) {
-    return res.status(400).json({ msg: "All fields are required" });
-  }
-
-  try {
-    const newUser = await User.create({
-      firstName: body.firstName,
-      lastName: body.lastName,
-      email: body.email,
-      gender: body.gender,
-      jobTitle: body.jobTitle
-    });
-
-    return res.status(201).json({ msg: "User created", user: newUser });
-  } catch (err) {
-    return res.status(500).json({ error: "Failed to create user", details: err.message });
-  }
-});
-
 // GET, PATCH, DELETE user by ID
 router
-  .route("/api/users/:id")
+  .route("/:id")
   .get(async (req, res) => {
     try {
       const user = await User.findById(req.params.id);
@@ -77,5 +46,37 @@ router
       return res.status(500).json({ error: "Delete failed" });
     }
   });
+
+
+// POST new user
+router.post("/", async (req, res) => {
+  const body = req.body;
+
+  if (
+    !body.firstName ||
+    !body.lastName ||
+    !body.email ||
+    !body.gender ||
+    !body.jobTitle
+  ) {
+    return res.status(400).json({ msg: "All fields are required" });
+  }
+
+  try {
+    const newUser = await User.create({
+      firstName: body.firstName,
+      lastName: body.lastName,
+      email: body.email,
+      gender: body.gender,
+      jobTitle: body.jobTitle
+    });
+
+    return res.status(201).json({ msg: "User created", user: newUser });
+  } catch (err) {
+    return res.status(500).json({ error: "Failed to create user", details: err.message });
+  }
+});
+
+
 
   module.exports = router;
